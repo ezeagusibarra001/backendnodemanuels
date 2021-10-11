@@ -1,27 +1,24 @@
 const express = require("express");
-const mysql = require("mysql");
 
 const bodyParser = require("body-parser");
+
+const cors = require("cors")
+
+const morgan = require("morgan");
 
 const PORT = process.env.PORT || 3050;
 
 const app = express();
 
+const connection = require('./src/settings/db')
+
 app.use(bodyParser.json());
+//cors
+app.use(cors());
+app.use(morgan('dev'));
 
-//MYSQL
-
-var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "node20_mysql",
-});
-
-//route
-app.get('/', (req, res) => {
-  res.send("welcome to my API!");
-});
+//routes
+app.use("/api", require("./src/routes/app"));
 
 //check connect
 connection.connect((error) => {
