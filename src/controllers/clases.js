@@ -11,7 +11,7 @@ let getClases = (req, res) => {
     if (result.length > 0) {
       res.json(result);
     } else {
-      res.send("No results yet!");
+      res.json([]);
     }
   });
 };
@@ -24,7 +24,7 @@ let getClasesById = (req, res) => {
     if (result.length > 0) {
       res.json(result);
     } else {
-      res.send("No results yet!");
+      res.json([]);
     }
   });
 };
