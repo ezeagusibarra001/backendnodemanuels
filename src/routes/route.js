@@ -7,8 +7,25 @@ const {
   deleteClases,
 } = require("../controllers/clases");
 const { login } = require("../controllers/login");
-const { getBlog, postBlog, deleteBlog } = require("../controllers/blog");
-const { getReviews, postReviews, validateTrue, deleteReview } = require("../controllers/review");
+const {
+  getBlog,
+  postBlog,
+  deleteBlog,
+  fileUpload,
+} = require("../controllers/blog");
+const {
+  getReviews,
+  postReviews,
+  validateTrue,
+  deleteReview,
+} = require("../controllers/review");
+const {
+  getPayments,
+  postPayments,
+  deletePayments,
+  fileUploadPayment,
+} = require("../controllers/payments");
+
 const app = express.Router();
 
 app.use(express.urlencoded({ extended: false }));
@@ -23,11 +40,17 @@ app.delete("/lessons/:idLesson", deleteClases);
 app.post("/login", login);
 //PUBLICATIONS
 app.get("/publications", getBlog);
-app.post("/publications", postBlog);
+app.post("/publications", fileUpload, postBlog);
 app.delete("/publications/:idPublications", deleteBlog);
 //REVIEWS
 app.get("/reviews", getReviews);
 app.post("/reviews", postReviews);
-app.put("/reviews/accept/:idReview", validateTrue)
-app.delete("/reviews/:idReview", deleteReview)
+app.put("/reviews/accept/:idReview", validateTrue);
+app.delete("/reviews/:idReview", deleteReview);
+//CHECKOUT
+app.get("/payments", getPayments);
+app.post("/payments", fileUploadPayment, postPayments);
+app.delete("/payments/:idPayment", deletePayments);
+
+
 module.exports = app;

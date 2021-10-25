@@ -2,7 +2,7 @@ const express = require("express");
 
 const bodyParser = require("body-parser");
 
-const cors = require("cors")
+const cors = require("cors");
 
 const morgan = require("morgan");
 
@@ -10,16 +10,17 @@ const PORT = process.env.PORT || 3050;
 
 const app = express();
 
-const connection = require('./src/settings/db')
+const connection = require("./src/settings/db");
+
+app.use(express.static('dbimages'));
+app.use(express.static('dbpayments'));
 
 app.use(bodyParser.json());
 //cors
 app.use(cors());
-app.use(morgan('dev'));
-
+app.use(morgan("dev"));
 //routes
-app.use("/api", require("./src/routes/app"));
-
+app.use("/api", require("./src/routes/route"));
 //check connect
 connection.connect((error) => {
   if (error) throw error;

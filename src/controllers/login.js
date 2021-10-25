@@ -14,7 +14,7 @@ exports.login = async (req, res) => {
         }else{
             connection.query('SELECT * FROM user WHERE user = ?', [user], async(error, results) => {
                 if(results.length == 0 || ! (await bcryptjs.compare(pass, results[0].pass))){
-                    res.json("Usuario o Contraseña incorrecta")
+                    res.status(500).json("Usuario o Contraseña incorrecta")
                 }else{
                     const token = jwt.sign({
                         data: 'foobar'
