@@ -22,12 +22,21 @@ app.use(morgan("dev"));
 //routes
 app.use("/api", require("./src/routes/route"));
 //check connect
-connection.connect((error) => {
+/*connection.connect((error) => {
   console.log("Database server running!");
   if (error) {
     console.error(error)
-    process.exit(1);
+
   }else{
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    
   }
+});*/
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+  console.log("Database server running!");
+  console.log('Connected as id ' + connection.threadId);
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
