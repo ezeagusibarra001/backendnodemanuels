@@ -24,8 +24,10 @@ app.use("/api", require("./src/routes/route"));
 //check connect
 connection.connect((error) => {
   console.log("Database server running!");
-  if (error) throw error;
-  if (!error) {
+  if (error) {
+    console.error(error)
+    process.exit(1);
+  }else{
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   }
 });
