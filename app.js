@@ -31,12 +31,12 @@ app.use("/api", require("./src/routes/route"));
     
   }
 });*/
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
+    console.error("error connecting: " + err.stack);
+    process.exit(1);
   }
   console.log("Database server running!");
-  console.log('Connected as id ' + connection.threadId);
+  console.log("Connected as id " + connection.threadId);
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
