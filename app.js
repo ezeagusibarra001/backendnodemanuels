@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const morgan = require("morgan");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 9000;
 
 const app = express();
 
@@ -40,3 +40,5 @@ connection.connect(function (err) {
   console.log("Connected as id " + connection.threadId);
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
+
+
