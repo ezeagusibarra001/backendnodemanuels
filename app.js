@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const morgan = require("morgan");
 
-const PORT = process.env.PORT || 3050;
+const PORT = process.env.PORT;
 
 const app = express();
 
@@ -34,7 +34,7 @@ app.use("/api", require("./src/routes/route"));
 connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
-    process.exit(1);
+    return;
   }
   console.log("Database server running!");
   console.log("Connected as id " + connection.threadId);
