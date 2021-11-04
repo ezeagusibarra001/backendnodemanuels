@@ -25,6 +25,7 @@ const {
   deletePayments,
   fileUploadPayment,
 } = require("../controllers/payments");
+const { putDiscounts, postDiscounts } = require("../controllers/discounts");
 
 const app = express.Router();
 
@@ -51,6 +52,9 @@ app.delete("/reviews/:idReview", deleteReview);
 app.get("/payments", getPayments);
 app.post("/payments", fileUploadPayment, postPayments);
 app.delete("/payments/:idPayment", deletePayments);
+//DISCOUNTS
+app.put("/discounts", putDiscounts);
+app.post("/discounts", postDiscounts);
 
 
 module.exports = app;
