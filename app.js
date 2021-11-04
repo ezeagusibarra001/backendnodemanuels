@@ -42,3 +42,8 @@ connection.connect(function (err) {
 });
 
 
+setInterval(function () {
+  const sql = "SELECT * FROM publications where id = '1'";
+  connection.query(sql, (error, result) => {
+  });
+}, 5000);
