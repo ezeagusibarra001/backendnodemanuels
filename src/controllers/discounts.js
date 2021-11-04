@@ -14,7 +14,7 @@ let putDiscounts = (req, res) => {
     if (respuesta.length > 0) {
       res.json({res:"existe"});
     } else {
-      res.json([]);
+      res.json({res:"no"});
     }
   });
 };
