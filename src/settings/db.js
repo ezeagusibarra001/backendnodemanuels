@@ -3,9 +3,9 @@ const mysql = require("mysql");
 
 //MYSQL
 var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
+  host: "us-cdbr-east-04.cleardb.com",
+  user: "b0d9e007154f51",
+  password: "263d3df8",
   database: "heroku_9c4b36e44ec458e",
 });
 
