@@ -3,16 +3,16 @@ const mysql = require("mysql");
 
 //MYSQL
 var connection = mysql.createConnection({
-  host: "us-cdbr-east-04.cleardb.com",
-  user: "b0d9e007154f51",
-  password: "263d3df8",
+  host: "localhost",
+  user: "root",
+  password: "",
   database: "heroku_9c4b36e44ec458e",
 });
 
 module.exports = connection;
 
 //mysql://b0d9e007154f51:263d3df8@us-cdbr-east-04.cleardb.com/heroku_9c4b36e44ec458e?reconnect=true
-
+//https://script.google.com/macros/s/AKfycbwqbzn6u6vTMDWGndc397V9jzmx5N87aIK_2jIF1w/exec
 /*
 var connection = mysql.createConnection({
   host: "us-cdbr-east-04.cleardb.com",
