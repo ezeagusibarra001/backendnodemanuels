@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 //cors
 app.use(cors());
 
-var whiteList = ['http://localhost:3000']
+/*var whiteList = ['http://localhost:3000']
 
 var corsOption = {
   origin: function (origin, callback) {
@@ -29,11 +29,11 @@ var corsOption = {
       callback(new Error('Not allowed by CORS'))
     }
   }
-}
+}*/
 
 app.use(morgan("dev"));
 //routes
-app.use("/api",cors(corsOption), require("./src/routes/route"));
+app.use("/api", require("./src/routes/route"));
 //check connect
 /*connection.connect((error) => {
   console.log("Database server running!");
