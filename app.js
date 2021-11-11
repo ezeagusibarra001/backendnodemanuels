@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 //cors
 app.use(cors());
 
-var whiteList = ['https://backmanuels.herokuapp.com']
+var whiteList = ['http://localhost:3000']
 
 var corsOption = {
   origin: function (origin, callback) {
