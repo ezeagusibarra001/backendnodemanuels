@@ -18,9 +18,22 @@ app.use(express.static("dbpayments"));
 app.use(bodyParser.json());
 //cors
 app.use(cors());
+
+var whiteList = ['https://backmanuels.herokuapp.com/api']
+
+var corsOption = {
+  origin: function (origin, callback) {
+    if(whiteList.indexOf(origin) !== -1){
+      callback(null, true)
+    }else{
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
 app.use(morgan("dev"));
 //routes
-app.use("/api", require("./src/routes/route"));
+app.use("/api",cors(corsOption), require("./src/routes/route"));
 //check connect
 /*connection.connect((error) => {
   console.log("Database server running!");
