@@ -2,6 +2,7 @@ const connection = require("../settings/db");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+
 const diskstorage = multer.diskStorage({
   destination: path.join(__dirname, "../../images"),
   filename: (req, file, cb) => {
@@ -17,7 +18,7 @@ let getBlog = (req, res) => {
 
   connection.query(sql, (error, result) => {
     if (error) throw error;
-    result.map((r) => {
+    /*result.map((r) => {
       fs.writeFileSync(
         path.join(
           __dirname,
@@ -25,7 +26,7 @@ let getBlog = (req, res) => {
         ),
         r.data
       );
-    });
+    });*/
 
     const imagesDir = fs.readdirSync(path.join(__dirname, "../../dbimages/"));
 
