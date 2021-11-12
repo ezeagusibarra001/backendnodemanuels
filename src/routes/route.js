@@ -56,5 +56,4 @@ app.delete("/payments/:idPayment", deletePayments);
 app.put("/discounts", putDiscounts);
 app.post("/discounts", postDiscounts);
 
-
 module.exports = app;
