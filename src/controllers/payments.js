@@ -60,7 +60,7 @@ let postPayments = (req, res) => {
   connection.query(sql, paymentModel, (error) => {
     if (error) throw error;
     res.send("payment was created correctly!");
-    //fs.unlinkSync("./payments/" + req.file.filename);
+    fs.unlinkSync("./payments/" + req.file.filename);
   });
 };
 
