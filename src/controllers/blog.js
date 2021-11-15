@@ -61,7 +61,7 @@ let postBlog = (req, res) => {
   connection.query(sql, blogModel, (error) => {
     if (error) throw error;
     res.send("blog was created correctly!");
-    fs.unlinkSync("./images/" + req.file.filename);
+    //fs.unlinkSync("./images/" + req.file.filename);
   });
 };
 
@@ -79,7 +79,7 @@ let deleteBlog = (req, res) => {
       connection.query(sql, (error) => {
         if (error) throw error;
         res.send("blog deleted!");
-        fs.unlinkSync("./dbimages/" + directory);
+        //fs.unlinkSync("./dbimages/" + directory);
       });
     }
   });

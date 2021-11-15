@@ -60,7 +60,7 @@ let postPayments = (req, res) => {
   connection.query(sql, paymentModel, (error) => {
     if (error) throw error;
     res.send("payment was created correctly!");
-    fs.unlinkSync("./payments/" + req.file.filename);
+    //fs.unlinkSync("./payments/" + req.file.filename);
   });
 };
 
@@ -78,7 +78,7 @@ let deletePayments = (req, res) => {
       connection.query(sql, (error) => {
         if (error) throw error;
         res.send("payment deleted!");
-        fs.unlinkSync("./dbpayments/" + directory);
+        //fs.unlinkSync("./dbpayments/" + directory);
       });
     }
   });
