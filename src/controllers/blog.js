@@ -28,7 +28,7 @@ let getBlog = (req, res) => {
       );
     });
 
-    //const imagesDir = fs.readdirSync(path.join(__dirname, "../../dbimages/"));
+    const imagesDir = fs.readdirSync(path.join(__dirname, "../../dbimages/"));
 
     if (result.length > 0) {
       res.json(result);
