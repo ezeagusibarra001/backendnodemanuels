@@ -78,7 +78,7 @@ let deletePayments = (req, res) => {
       connection.query(sql, (error) => {
         if (error) throw error;
         res.send("payment deleted!");
-        //fs.unlinkSync("./dbpayments/" + directory);
+        fs.unlinkSync("./dbpayments/" + directory);
       });
     }
   });

@@ -79,7 +79,7 @@ let deleteBlog = (req, res) => {
       connection.query(sql, (error) => {
         if (error) throw error;
         res.send("blog deleted!");
-        //fs.unlinkSync("./dbimages/" + directory);
+        fs.unlinkSync("./dbimages/" + directory);
       });
     }
   });
