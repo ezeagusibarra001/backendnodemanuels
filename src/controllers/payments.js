@@ -53,6 +53,8 @@ let postPayments = (req, res) => {
     lesson: req.body.lesson,
     dateSelected: req.body.dateSelected,
     phone: req.body.phone,
+    price: req.body.price,
+    estado: 0,
     type: type,
     name: name,
     data: data,
