@@ -86,4 +86,13 @@ let deletePayments = (req, res) => {
   });
 };
 
-module.exports = { getPayments, postPayments, fileUploadPayment, deletePayments };
+let putPayment = (req, res) => {
+  const { idPayment } = req.params;
+  const sql = `UPDATE payments SET estado = '${1}' WHERE idPayment = ${idPayment}`;
+  connection.query(sql, (error) => {
+    if (error) throw error;
+    res.send("Payment validado");
+  });
+};
+
+module.exports = { getPayments, postPayments, fileUploadPayment, deletePayments, putPayment };

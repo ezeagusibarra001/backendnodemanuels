@@ -24,6 +24,7 @@ const {
   postPayments,
   deletePayments,
   fileUploadPayment,
+  putPayment
 } = require("../controllers/payments");
 const { putDiscounts, postDiscounts } = require("../controllers/discounts");
 
@@ -52,6 +53,7 @@ app.delete("/reviews/:idReview", deleteReview);
 app.get("/payments", getPayments);
 app.post("/payments", fileUploadPayment, postPayments);
 app.delete("/payments/:idPayment", deletePayments);
+app.put("/payments/:idPayment", putPayment);
 //DISCOUNTS
 app.put("/discounts", putDiscounts);
 app.post("/discounts", postDiscounts);
