@@ -12,9 +12,9 @@ let putDiscounts = (req, res) => {
       (a) => a.code.toLowerCase() === code.toLowerCase()
     );
     if (respuesta.length > 0) {
-      res.json({res:"existe"});
+      res.json({ res: "existe" });
     } else {
-      res.json({res:"no"});
+      res.json({ res: "no" });
     }
   });
 };
@@ -31,4 +31,25 @@ let postDiscounts = (req, res) => {
   });
 };
 
-module.exports = { putDiscounts, postDiscounts };
+let getDiscounts = (req, res) => {
+  const sql = "SELECT * FROM discounts";
+
+  connection.query(sql, (error, result) => {
+    if (error) throw error;
+    if (result.length > 0) {
+      res.json(result);
+    } else {
+      res.json([]);
+    }
+  });
+};
+
+let deleteDiscounts = (req, res) => {
+  const { idDiscounts } = req.params;
+  const sql = `DELETE FROM discounts WHERE idDiscounts = ${idDiscounts}`;
+  connection.query(sql, (error) => {
+    if (error) throw error;
+    res.send("discount deleted!");
+  });
+};
+module.exports = { putDiscounts, postDiscounts, getDiscounts, deleteDiscounts };
