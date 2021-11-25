@@ -35,6 +35,7 @@ const {
 } = require("../controllers/discounts");
 
 const app = express.Router();
+app.use(cors());
 var whitelist = ["http://localhost:3000", "http://manuels.com.ar"];
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
