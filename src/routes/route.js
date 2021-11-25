@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const {
   homeClases,
   getClases,
@@ -34,7 +35,7 @@ const {
 } = require("../controllers/discounts");
 
 const app = express.Router();
-
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //CLASES

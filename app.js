@@ -9,17 +9,17 @@ const morgan = require("morgan");
 const PORT = process.env.PORT || 3050;
 
 const app = express();
-//cors
-app.use(cors(corsOption));
+
 const connection = require("./src/settings/db");
 
 app.use(express.static("dbimages"));
 app.use(express.static("dbpayments"));
 
 app.use(bodyParser.json());
+//cors
+app.use(cors());
 
-
-var whiteList = ['http://manuels.com.ar']
+/*var whiteList = ['http://localhost:3000']
 
 var corsOption = {
   origin: function (origin, callback) {
@@ -29,7 +29,7 @@ var corsOption = {
       callback(new Error('Not allowed by CORS'))
     }
   }
-}
+}*/
 
 app.use(morgan("dev"));
 //routes
