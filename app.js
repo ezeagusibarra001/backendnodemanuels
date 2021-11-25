@@ -9,15 +9,15 @@ const morgan = require("morgan");
 const PORT = process.env.PORT || 3050;
 
 const app = express();
-
+//cors
+app.use(cors());
 const connection = require("./src/settings/db");
 
 app.use(express.static("dbimages"));
 app.use(express.static("dbpayments"));
 
 app.use(bodyParser.json());
-//cors
-app.use(cors());
+
 
 /*var whiteList = ['http://localhost:3000']
 
