@@ -11,8 +11,7 @@ const PORT = process.env.PORT || 3050;
 const app = express();
 
 const connection = require("./src/settings/db");
-//cors
-app.use(cors());
+
 app.use(express.static("dbimages"));
 app.use(express.static("dbpayments"));
 
@@ -31,6 +30,8 @@ var corsOption = {
 }*/
 
 app.use(morgan("dev"));
+//cors
+app.use(cors());
 //routes
 app.use("/api", require("./src/routes/route"));
 //check connect
