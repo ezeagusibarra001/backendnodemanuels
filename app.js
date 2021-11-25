@@ -11,13 +11,12 @@ const PORT = process.env.PORT || 3050;
 const app = express();
 
 const connection = require("./src/settings/db");
-
+//cors
+app.use(cors());
 app.use(express.static("dbimages"));
 app.use(express.static("dbpayments"));
 
 app.use(bodyParser.json());
-//cors
-app.use(cors());
 
 /*var whiteList = ['http://localhost:3000']
 
