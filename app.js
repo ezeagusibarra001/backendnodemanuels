@@ -16,6 +16,8 @@ app.use(express.static("dbimages"));
 app.use(express.static("dbpayments"));
 
 app.use(bodyParser.json());
+//cors
+app.use(cors());
 
 /*var whiteList = ['http://localhost:3000']
 
@@ -30,8 +32,6 @@ var corsOption = {
 }*/
 
 app.use(morgan("dev"));
-//cors
-app.use(cors());
 //routes
 app.use("/api", require("./src/routes/route"));
 //check connect
