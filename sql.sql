@@ -61,3 +61,9 @@ CREATE TABLE `discounts` (
   `code` varchar(15) NOT NULL,
   PRIMARY KEY (`idDiscounts`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+ALTER TABLE `heroku_648485e37fb60ab`.`payments` 
+ADD COLUMN `price` VARCHAR(45) NULL AFTER `phone`;
+
+ALTER TABLE `heroku_648485e37fb60ab`.`payments` 
+ADD COLUMN `estado` VARCHAR(45) NULL AFTER `price`;
