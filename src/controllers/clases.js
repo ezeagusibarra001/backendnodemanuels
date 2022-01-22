@@ -46,7 +46,7 @@ let postClases = (req, res) => {
     date: req.body.date,
     price: req.body.price,
     dolar: req.body.dolar,
-    linkDolar: req.body.linkDolar,
+    linkDolar: req.body.linkDolar
 }
   connection.query(sql, clasesModel, (error) => {
     if (error) throw error;
